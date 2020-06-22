@@ -35,6 +35,11 @@ const addNewlink = () => {
     let userLinkUrl = prompt("Give your link's url.");
     let userLinkAuthor = prompt("Give your link's author");
 
+// An if statement which is the responsible for the url that the user give, if they do not add http:// or https:// in front and it will add automatically.
+    if (!userLinkUrl.startsWith("http://") && !userLinkUrl.startsWith("https://")) {
+        userLinkUrl = "http://" + userLinkUrl;
+    }
+
     let newLink = {
         title: userLinkTitle,
         url: userLinkUrl,
@@ -42,12 +47,6 @@ const addNewlink = () => {
     }
 
     links.push(newLink);
-
-// An if statement which is the responsible for the url that the user give, if they do not add http:// or https:// in front and it will add automatically.
-
-    if (!newLink.url.startsWith("http://") && !newLink.url.startsWith("https://")) {
-        alert("http://" + newLink.url);
-    }
 }
 
 
